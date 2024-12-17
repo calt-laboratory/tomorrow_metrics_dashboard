@@ -10,6 +10,10 @@ repositories {
 }
 
 dependencies {
+    implementation("org.jsoup:jsoup:1.18.1")
+    implementation("org.seleniumhq.selenium:selenium-java:4.27.0")
+    implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.27.0")
+    implementation("org.seleniumhq.selenium:selenium-support:4.27.0")
     testImplementation(kotlin("test"))
 }
 
