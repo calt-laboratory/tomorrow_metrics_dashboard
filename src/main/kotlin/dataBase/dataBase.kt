@@ -6,7 +6,6 @@ import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
 import kotlinx.datetime.Clock
-import java.nio.file.Paths
 
 
 object TomorrowCustomerNumber : Table(name="TomorrowCustomerNumber") {
@@ -26,18 +25,13 @@ fun insertCustomerNumber(customerNumber: Int) {
 }
 
 
-fun connectToDatabase() {
-    val databasePath = Paths.get("").toAbsolutePath()  // Current working dir
-        .resolve("src/main/resources/database/tomorrow_database.db")  // Navigate to the target
-        .normalize()
-        .toString()
-
+fun connectToDatabase(pathToDatabse: String) {
     Database.connect(
-        url = "jdbc:sqlite:$databasePath",
+        url = "jdbc:sqlite:$pathToDatabse",
         driver = "org.sqlite.JDBC"
     )
 
-    println("Connected to database at: $databasePath")
+    println("Connected to database at: $pathToDatabse")
 }
 
 
