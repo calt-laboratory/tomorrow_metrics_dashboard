@@ -16,8 +16,9 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.27.0")
     implementation("org.seleniumhq.selenium:selenium-support:4.27.0")
 
-    // Data Analytics (Dataframe)
+    // Data Analytics (Dataframe, Plotting)
     implementation("org.jetbrains.kotlinx:dataframe:0.15.0")
+    implementation("org.jetbrains.kotlinx:kandy-api:0.8.0-RC1")
 
     // ORM
     implementation("org.jetbrains.exposed:exposed-core:0.57.0")
@@ -29,7 +30,6 @@ dependencies {
 
     // Datetime
     runtimeOnly("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
-
 
     testImplementation(kotlin("test"))
 }
