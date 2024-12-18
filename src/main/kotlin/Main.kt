@@ -1,8 +1,8 @@
 package org.example
 import org.example.dataScraping.getTomorrowCustomerNumber
-import org.example.dataBase.connectToDatabase
-import org.example.dataBase.insertCustomerNumber
-import org.example.dataBase.initializeDatabase
+import org.example.database.connectToDatabase
+import org.example.database.insertCustomerNumber
+import org.example.database.initializeDatabase
 import org.example.utils.getDatabasePath
 import org.example.constants.TOMORROW_CUSTOMER_TABLE_NAME
 import org.example.constants.RELATIVE_PATH_TO_DATABASE
