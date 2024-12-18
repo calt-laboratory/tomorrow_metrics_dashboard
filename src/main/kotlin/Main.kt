@@ -1,5 +1,6 @@
 package org.example
+import org.example.dataScraping.getTomorrowCustomerNumber
 
 fun main() {
-    println("Hello World!")
+    val customerNumber = getTomorrowCustomerNumber()
 }

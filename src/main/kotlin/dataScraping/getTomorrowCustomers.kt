@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement
 const val TOMORROW_BASE_URL = "https://www.tomorrow.one/de-DE/"
 
 
-fun getTomorrowCustomerNumber() {
+fun getTomorrowCustomerNumber() : Int {
 
     val driver: WebDriver = ChromeDriver()
 
@@ -33,17 +33,13 @@ fun getTomorrowCustomerNumber() {
             ExpectedConditions.visibilityOfElementLocated(By.cssSelector(customerNumberCSSSelector))
         )
         val customerNumber = numberElement.text
+        val customerNumberCleaned = customerNumber.replace(oldValue = ".", newValue = "")
         println("Current Tomorrow customer number: $customerNumber")
+        return customerNumberCleaned.toInt()
     } catch (e: Exception) {
         println("An error occurred while fetching the customer number $e")
+        throw e
     } finally {
         driver.quit()
     }
 }
-
-
-fun main() {
-    getTomorrowCustomerNumber()
-}
-
-
