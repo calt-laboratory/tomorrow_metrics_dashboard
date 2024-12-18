@@ -6,6 +6,8 @@ import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
 import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 
 
 object TomorrowCustomerNumber : Table(name="TomorrowCustomerNumber") {
@@ -15,7 +17,10 @@ object TomorrowCustomerNumber : Table(name="TomorrowCustomerNumber") {
 
 
 fun insertCustomerNumber(customerNumber: Int) {
-    val currentTimestamp = Clock.System.now().toString()
+    val currentTimestamp = Clock.System.now()
+        .toLocalDateTime(TimeZone.currentSystemDefault())
+        .toString()
+
     transaction {
         TomorrowCustomerNumber.insert {
             it[TomorrowCustomerNumber.createdAt] = currentTimestamp
@@ -25,19 +30,18 @@ fun insertCustomerNumber(customerNumber: Int) {
 }
 
 
-fun connectToDatabase(pathToDatabse: String) {
+fun connectToDatabase(pathToDatabase: String) {
     Database.connect(
-        url = "jdbc:sqlite:$pathToDatabse",
+        url = "jdbc:sqlite:$pathToDatabase",
         driver = "org.sqlite.JDBC"
     )
 
-    println("Connected to database at: $pathToDatabse")
+    println("Connected to database at: $pathToDatabase")
 }
 
 
 fun initializeDatabase() {
     transaction {
         SchemaUtils.create(TomorrowCustomerNumber)
-        println("Database schema successfully created")
     }
 }

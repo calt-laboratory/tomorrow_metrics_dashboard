@@ -10,10 +10,11 @@ import org.jetbrains.kotlinx.dataframe.io.DbConnectionConfig
 import org.example.dataProcessing.readSqlTable
 import org.jetbrains.kotlinx.dataframe.api.print
 
+
 fun main() {
     val customerNumber = getTomorrowCustomerNumber()
     val pathToDatabase = getDatabasePath(relativeProjectPathToDatabase = RELATIVE_PATH_TO_DATABASE)
-    connectToDatabase(pathToDatabse = pathToDatabase)
+    connectToDatabase(pathToDatabase = pathToDatabase)
     initializeDatabase()
     insertCustomerNumber(customerNumber = customerNumber)
 
