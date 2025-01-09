@@ -16,11 +16,7 @@ object TomorrowCustomerNumber : Table(name="TomorrowCustomerNumber") {
 }
 
 
-fun insertCustomerNumber(customerNumber: Int) {
-    val currentTimestamp = Clock.System.now()
-        .toLocalDateTime(TimeZone.currentSystemDefault())
-        .toString()
-
+fun insertCustomerNumber(customerNumber: Int, currentTimestamp: String) {
     transaction {
         TomorrowCustomerNumber.insert {
             it[TomorrowCustomerNumber.createdAt] = currentTimestamp
