@@ -18,7 +18,7 @@ dependencies {
 
     // Data Analytics (Dataframe, Plotting)
     implementation("org.jetbrains.kotlinx:dataframe:0.15.0")
-    implementation("org.jetbrains.kotlinx:kandy-api:0.8.0-RC1")
+    implementation("org.jetbrains.kotlinx:kandy-lets-plot:0.8.0-RC1")
 
     // ORM
     implementation("org.jetbrains.exposed:exposed-core:0.57.0")

@@ -3,6 +3,7 @@ import org.example.constants.RELATIVE_PATH_TO_DATABASE
 import org.example.constants.TOMORROW_CUSTOMER_TABLE_NAME
 import org.example.dataProcessing.readSqlTable
 import org.example.dataProcessing.truncateTimestamp
+import org.example.dataProcessing.visualizeCustomerNumber
 import org.example.dataScraping.getTomorrowCustomerNumber
 import org.example.database.connectToDatabase
 import org.example.database.initializeDatabase
@@ -26,4 +27,5 @@ fun main() {
     val df = readSqlTable(dbConfig = tomorrowDbConfig, tableName = TOMORROW_CUSTOMER_TABLE_NAME)
     val truncatedDF = truncateTimestamp(df = df)
     truncatedDF.print()
+    visualizeCustomerNumber(df = truncatedDF)
 }
