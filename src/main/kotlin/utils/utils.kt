@@ -1,14 +1,14 @@
 package org.example.utils
 
-import java.nio.file.Paths
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import java.nio.file.Paths
 
-fun getDatabasePath(relativeProjectPathToDatabase: String) : String {
+fun getPathToFile(relativeProjectPathToFile: String) : String {
     return (
         Paths.get("").toAbsolutePath()
-        .resolve(relativeProjectPathToDatabase)
+        .resolve(relativeProjectPathToFile)
         .normalize()
         .toString()
         )
