@@ -21,6 +21,6 @@ fun getCurrentTimestamp() : String {
         .toString()
 }
 
-fun readPNG(pathToPNG: String) {
-    javax.imageio.ImageIO.read(File(pathToPNG))
+fun readPlot(pathToPlot: String) {
+    javax.imageio.ImageIO.read(File(pathToPlot))
 }
