@@ -13,6 +13,7 @@ const val TOMORROW_BASE_URL = "https://www.tomorrow.one/de-DE/"
 
 fun getTomorrowCustomerNumber() : Int {
     val options = ChromeOptions()
+    options.addArguments("--headless")
     options.addArguments("--remote-allow-origins=*")
     System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver")
     val driver = ChromeDriver(options)

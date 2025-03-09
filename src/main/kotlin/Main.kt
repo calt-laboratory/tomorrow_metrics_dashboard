@@ -9,6 +9,7 @@ import org.example.dataScraping.getTomorrowCustomerNumber
 import org.example.database.connectToDatabase
 import org.example.database.initializeDatabase
 import org.example.database.insertCustomerNumber
+import org.example.server.htmlServerForCustomerTrend
 import org.example.utils.getCurrentTimestamp
 import org.example.utils.getPathToFile
 import org.example.utils.readPlot
@@ -32,4 +33,6 @@ fun main() {
     val pathToPlot = getPathToFile(relativeProjectPathToFile = RELATIVE_PATH_TO_PLOT_HTML)
     visualizeCustomerNumber(df = truncatedDF, pathToPlot = pathToPlot)
     readPlot(pathToPlot = pathToPlot)
+
+    htmlServerForCustomerTrend(pathToPlot = pathToPlot)
 }

@@ -16,6 +16,10 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.29.0")
     implementation("org.seleniumhq.selenium:selenium-support:4.29.0")
 
+    // HTTP Server
+    implementation("io.ktor:ktor-server-netty:3.1.1")
+    implementation("io.ktor:ktor-server-core:3.1.1")
+
     // Data Analytics (Dataframe, Plotting)
     implementation("org.jetbrains.kotlinx:dataframe:0.15.0")
     implementation("org.jetbrains.kotlinx:kandy-lets-plot:0.8.0-RC1")
