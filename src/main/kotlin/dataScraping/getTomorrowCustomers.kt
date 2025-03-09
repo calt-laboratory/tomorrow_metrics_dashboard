@@ -1,9 +1,9 @@
 package org.example.dataScraping
 
 import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 import java.time.Duration
@@ -12,8 +12,10 @@ const val TOMORROW_BASE_URL = "https://www.tomorrow.one/de-DE/"
 
 
 fun getTomorrowCustomerNumber() : Int {
-
-    val driver: WebDriver = ChromeDriver()
+    val options = ChromeOptions()
+    options.addArguments("--remote-allow-origins=*")
+    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver")
+    val driver = ChromeDriver(options)
 
     try {
         driver.get(TOMORROW_BASE_URL)
@@ -25,16 +27,13 @@ fun getTomorrowCustomerNumber() : Int {
         )
         rejectButton.click()
 
-        val customerNumberCSSSelector = """
-                #content > div:nth-child(3) > div > div > div > div > 
-                div:nth-child(1) > div > div.sc-bf35565f-1.gLdIXT
-            """.trimIndent()
+        val customerNumberCSSSelector = "div.sc-fb09fbfa-1.bNPQa-D"
         val numberElement: WebElement = wait.until(
             ExpectedConditions.visibilityOfElementLocated(By.cssSelector(customerNumberCSSSelector))
         )
         val customerNumber = numberElement.text
         val customerNumberCleaned = customerNumber.replace(oldValue = ".", newValue = "")
-        println("Current Tomorrow customer number: $customerNumber")
+        println("Current Tomorrow customer number: $customerNumberCleaned")
         return customerNumberCleaned.toInt()
     } catch (e: Exception) {
         throw e

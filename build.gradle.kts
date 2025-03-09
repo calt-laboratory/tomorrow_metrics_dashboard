@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.0.21"
+    kotlin("jvm") version "2.1.10"
 }
 
 group = "org.example"
@@ -12,9 +12,9 @@ repositories {
 dependencies {
     // Web Scraping
     implementation("org.jsoup:jsoup:1.18.1")
-    implementation("org.seleniumhq.selenium:selenium-java:4.27.0")
-    implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.27.0")
-    implementation("org.seleniumhq.selenium:selenium-support:4.27.0")
+    implementation("org.seleniumhq.selenium:selenium-java:4.29.0")
+    implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.29.0")
+    implementation("org.seleniumhq.selenium:selenium-support:4.29.0")
 
     // Data Analytics (Dataframe, Plotting)
     implementation("org.jetbrains.kotlinx:dataframe:0.15.0")
