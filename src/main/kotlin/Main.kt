@@ -2,6 +2,9 @@ package org.example
 import org.example.constants.RELATIVE_PATH_TO_DATABASE
 import org.example.constants.RELATIVE_PATH_TO_PLOT_HTML
 import org.example.constants.TOMORROW_CUSTOMER_TABLE_NAME
+import org.example.constants.HOST
+import org.example.constants.PORT
+import org.example.constants.RUNTIME_HOURS
 import org.example.dataProcessing.readSqlTable
 import org.example.dataProcessing.truncateTimestamp
 import org.example.dataProcessing.visualizeCustomerNumber
@@ -34,5 +37,5 @@ fun main() {
     visualizeCustomerNumber(df = truncatedDF, pathToPlot = pathToPlot)
     readPlot(pathToPlot = pathToPlot)
 
-    htmlServerForCustomerTrend(pathToPlot = pathToPlot)
+    htmlServerForCustomerTrend(pathToPlot = pathToPlot, host = HOST, port = PORT, runtimeHours = RUNTIME_HOURS )
 }
